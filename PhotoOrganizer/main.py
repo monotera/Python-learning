@@ -21,7 +21,7 @@ def checkDate(dir):
     date_created_obj = time.localtime(os.path.getctime(dir))
     return (f'{date_created_obj.tm_year}.{date_created_obj.tm_mon}.{date_created_obj.tm_mday}')
 
-def thumb(imagen,dir):
+def createThumbNail(imagen,dir):
     nom,ext = os.path.splitext(imagen)
     if ext == ".mp4" or ext == ".avi":
         image = nom+".png"
@@ -53,7 +53,7 @@ def moveFiles(path,pp):
                 createDir(pp , date)
                 finalDir = f'{pp}/{date}'
                 shutil.copyfile(os.path.join(path+"/",file),os.path.join(finalDir+"/",file))
-                thumb(url,finalDir)
+                createThumbNail(url,finalDir)
     except:
         print('Invalid dir')
 
