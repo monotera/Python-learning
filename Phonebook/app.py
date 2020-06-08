@@ -60,11 +60,15 @@ def deleteContact():
     else:
         print('There are no contacts')
 
+
 def searchContact():
     name = input('Name of the contact to search: ')
     for x in phoneBook:
         if x[1] == name:
-            print(x[1], x[2], x[3], x[4])
+            if x[4] == '1':
+                print(i, ') ', x[1], x[2], x[3], 'Friend')
+            else:
+                print(i, ') ', x[1], x[2], x[3], 'Enemy')
 
 while option != '6':
     menu()
@@ -85,4 +89,3 @@ while option != '6':
     else:
         print('ERROR')
     input("Press enter to continue...")
-        
